@@ -20,6 +20,10 @@ resources :users do
   resources :users
 
   #resources :password_resets,     only: [:new, :create, :edit, :update]
-  resources :microposts,          only: [:create, :destroy]
+  resources :microposts,          only: [:create, :destroy] do
+    resources :comments, only: :create
+  end
+
+
   resources :relationships,       only: [:create, :destroy]
 end

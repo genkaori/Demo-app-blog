@@ -3,7 +3,6 @@
   <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
   <span class="content"><%= micropost.content %>
     <%= image_tag micropost.picture.url if micropost.picture? %>
-
   </span>
 
   <span class="timestamp">
@@ -13,4 +12,14 @@
                                        data: { confirm: "You sure?" } %>
     <% end %>
   </span>
+  <div class="comments">
+    <%= render micropost.comments%>
+  </div>
+  <%= form_for([micropost, Comment.new]) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+    <div class="field">
+      <%= f.text_area :content, placeholder: "Compose new micropost..." %>
+    </div>
+    <%= f.submit "Comment", class: "btn btn-primary" %>
+  <% end %>
 </li>

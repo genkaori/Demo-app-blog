@@ -8,6 +8,7 @@ class User < ApplicationRecord
                                    dependent:   :destroy
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
+  has_many :comments
   before_save { self.email = email.downcase }
   validates :name, presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -29,7 +30,7 @@ class User < ApplicationRecord
    # Defines a proto-feed.
   # See "Following users" for the full implementation.
   def feed
-    Micropost.where("user_id = ?", id)
+    Micropost.where("user_id = ?", id).order(created_at: :desc)
   end
 # Follows a user.
   def follow(other_user)
