@@ -1,6 +1,8 @@
 class CommentsController < ApplicationController
+
   def create
-     @comment = current_user.comments.build(comment_params.merge(micropost_id: params[:micropost_id]))
+     @comment = current_user.comments.build(comment_params.merge(micropost_id:
+      params[:micropost_id]))
     if @comment.save
       flash[:success] = "Comment created!"
       redirect_to :back

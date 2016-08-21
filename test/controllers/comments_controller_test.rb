@@ -1,7 +1,7 @@
-require 'test_helper'
+# require 'test_helper'
 
-class CommentsControllerTest < ActionDispatch::IntegrationTest
+# class CommentsControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end
-end
+# end

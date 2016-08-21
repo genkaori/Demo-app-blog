@@ -23,7 +23,5 @@ resources :users do
   resources :microposts,          only: [:create, :destroy] do
     resources :comments, only: :create
   end
-
-
   resources :relationships,       only: [:create, :destroy]
 end

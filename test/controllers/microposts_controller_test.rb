@@ -1,7 +1,7 @@
-require 'test_helper'
+# require 'test_helper'
 
-class MicropostsControllerTest < ActionDispatch::IntegrationTest
+# class MicropostsControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end
-end
+# end

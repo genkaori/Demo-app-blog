@@ -12,14 +12,16 @@
                                        data: { confirm: "You sure?" } %>
     <% end %>
   </span>
+<% if logged_in? %>
   <div class="comments">
     <%= render micropost.comments%>
   </div>
   <%= form_for([micropost, Comment.new]) do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
     <div class="field">
-      <%= f.text_area :content, placeholder: "Compose new micropost..." %>
+      <%= f.text_area :content, placeholder: "Compose new entry..." %>
     </div>
     <%= f.submit "Comment", class: "btn btn-primary" %>
   <% end %>
+<% end %>
 </li>
